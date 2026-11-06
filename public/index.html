@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>College Placement Management System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                linear-gradient(rgba(255,255,255,0.78),
+                                rgba(220,235,250,0.85)),
+                url("https://images.unsplash.com/photo-1497366754035-f200968a6e72")
+                center/cover fixed no-repeat;
+            color: #17365d;
+        }
+
+        /* Navigation Bar */
+
+        header {
+            background: #123d70;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h2 {
+            font-size: 23px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #8bd3ff;
+        }
+
+        /* Hero Section */
+
+        .hero {
+            min-height: 390px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            color: #123d70;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #334e68;
+        }
+
+        .hero button {
+            margin-top: 25px;
+            padding: 14px 28px;
+            background: #1769aa;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background: #0b3158;
+        }
+
+        /* Dashboard */
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            margin: 20px 0;
+            color: #123d70;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            padding: 20px 7%;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.94);
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+        }
+
+        .card h3 {
+            color: #1769aa;
+            margin-bottom: 15px;
+        }
+
+        .card h1 {
+            font-size: 38px;
+            color: #123d70;
+        }
+
+        .card p {
+            margin-top: 12px;
+            color: #52677d;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 10px 20px;
+            background: #1769aa;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .card a:hover {
+            background: #123d70;
+        }
+
+        /* About Section */
+
+        .about {
+            max-width: 900px;
+            margin: 45px auto;
+            padding: 35px;
+            text-align: center;
+            background: rgba(255,255,255,0.94);
+            border-radius: 15px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+        }
+
+        .about h2 {
+            color: #123d70;
+            margin-bottom: 18px;
+        }
+
+        .about p {
+            color: #52677d;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+
+        footer {
+            background: #123d70;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            margin-top: 40px;
+            line-height: 1.8;
+        }
+
+        /* Mobile Responsive */
+
+        @media(max-width: 600px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .about {
+                margin: 25px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <header>
+
+        <h2>🎓 College Placement System</h2>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="insertStudent.html">Add Student</a>
+            <a href="listStudent.html">Students</a>
+            <a href="insertCompany.html">Add Company</a>
+            <a href="listCompany.html">Companies</a>
+            <a href="apply.html">Apply</a>
+            <a href="listApplications.html">Applications</a>
+            <a href="update.html">Update</a>
+            <a href="delete.html">Delete</a>
+            <a href="about.html">About</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Welcome Section -->
+
+    <section class="hero">
+
+        <h1>Welcome to College Placement Management System</h1>
+
+        <p>
+            Connecting Students with Their Dream Companies.
+            <br>
+            Explore Opportunities, Apply for Jobs and Build Your Future.
+        </p>
+
+        <button onclick="location.href='listCompany.html'">
+            Explore Companies
+        </button>
+
+    </section>
+
+
+    <!-- Dashboard Section -->
+
+    <h2 class="section-title">Our Placement Dashboard</h2>
+
+    <section class="cards">
+
+        <div class="card">
+
+            <h3>👨‍🎓 Total Students</h3>
+
+            <h1 id="studentCount">0</h1>
+
+            <p>Registered Students</p>
+
+            <a href="listStudent.html">View Students</a>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🏢 Total Companies</h3>
+
+            <h1 id="companyCount">0</h1>
+
+            <p>Recruiting Companies</p>
+
+            <a href="listCompany.html">View Companies</a>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>📄 Total Applications</h3>
+
+            <h1 id="applicationCount">0</h1>
+
+            <p>Student Applications</p>
+
+            <a href="listApplications.html">View Applications</a>
+
+        </div>
+
+    </section>
+
+
+    <!-- About Section -->
+
+    <section class="about">
+
+        <h2>Build Your Career With Us!</h2>
+
+        <p>
+            Our College Placement Management System helps students
+            find suitable job opportunities and connect with leading
+            companies. It manages student details, company information
+            and job applications in one place.
+
+            <br><br>
+
+            Our aim is to make the placement process simple,
+            organized and efficient.
+        </p>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>College Placement Management System</p>
+
+        <p>Your Career, Our Priority!</p>
+
+        <p>© 2026 All Rights Reserved</p>
+
+    </footer>
+
+
+    <!-- Database Counts -->
+
+    <script>
+
+        async function loadCounts() {
+
+            try {
+
+                const studentResponse = await fetch('/students');
+                const companyResponse = await fetch('/companies');
+                const applicationResponse = await fetch('/applications');
+
+                if (!studentResponse.ok ||
+                    !companyResponse.ok ||
+                    !applicationResponse.ok) {
+                    throw new Error('Unable to load database records');
+                }
+
+                const students = await studentResponse.json();
+                const companies = await companyResponse.json();
+                const applications = await applicationResponse.json();
+
+                document.getElementById('studentCount').innerText =
+                    students.length;
+
+                document.getElementById('companyCount').innerText =
+                    companies.length;
+
+                document.getElementById('applicationCount').innerText =
+                    applications.length;
+
+            }
+
+            catch (error) {
+
+                console.log('Database loading error:', error);
+
+            }
+
+        }
+
+        loadCounts();
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About - College Placement Management System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                linear-gradient(rgba(255,255,255,0.80),
+                                rgba(220,235,250,0.88)),
+                url("https://images.unsplash.com/photo-1497366754035-f200968a6e72")
+                center/cover fixed no-repeat;
+            color: #17365d;
+        }
+
+        header {
+            background: #123d70;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h2 {
+            font-size: 23px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #8bd3ff;
+        }
+
+        .heading {
+            text-align: center;
+            padding: 50px 15px 25px;
+        }
+
+        .heading h1 {
+            color: #123d70;
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .heading p {
+            font-size: 17px;
+            color: #52677d;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto 50px;
+            padding: 15px;
+        }
+
+        .section {
+            background: rgba(255,255,255,0.96);
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 13px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+        }
+
+        .section h2 {
+            color: #1769aa;
+            margin-bottom: 18px;
+            border-bottom: 2px solid #d7e9f8;
+            padding-bottom: 10px;
+        }
+
+        .section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #34495e;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: #edf6ff;
+            padding: 22px;
+            border-radius: 10px;
+            border-left: 5px solid #1769aa;
+        }
+
+        .feature-card h3 {
+            color: #123d70;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            font-size: 15px;
+        }
+
+        .tech-list {
+            line-height: 2.2;
+            padding-left: 25px;
+            color: #34495e;
+        }
+
+        .project-details {
+            background: #edf6ff;
+            padding: 22px;
+            border-radius: 10px;
+            line-height: 2;
+        }
+
+        footer {
+            background: #123d70;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            line-height: 1.8;
+        }
+
+        @media(max-width: 600px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .heading h1 {
+                font-size: 28px;
+            }
+
+            .section {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <header>
+
+        <h2>🎓 College Placement System</h2>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="insertStudent.html">Add Student</a>
+            <a href="listStudent.html">Students</a>
+            <a href="insertCompany.html">Add Company</a>
+            <a href="listCompany.html">Companies</a>
+            <a href="apply.html">Apply</a>
+            <a href="listApplications.html">Applications</a>
+            <a href="update.html">Update</a>
+            <a href="delete.html">Delete</a>
+            <a href="about.html">About</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Page Heading -->
+
+    <section class="heading">
+
+        <h1>About Our Project</h1>
+
+        <p>Learn more about our College Placement Management System.</p>
+
+    </section>
+
+
+    <div class="container">
+
+        <!-- Introduction -->
+
+        <section class="section">
+
+            <h2>Project Introduction</h2>
+
+            <p>
+                The College Placement Management System is a web-based
+                application developed to manage the placement activities
+                of a college.
+
+                It provides a platform to maintain student information,
+                company details and job application records.
+
+                This system makes the placement process easier,
+                faster and more organized.
+            </p>
+
+        </section>
+
+
+        <!-- Objectives -->
+
+        <section class="section">
+
+            <h2>Project Objectives</h2>
+
+            <p>
+                The main objective of this project is to simplify
+                the placement activities between students and companies.
+            </p>
+
+            <ul class="tech-list">
+
+                <li>To maintain student information.</li>
+
+                <li>To store company details and job opportunities.</li>
+
+                <li>To allow students to apply for companies.</li>
+
+                <li>To manage application records.</li>
+
+                <li>To update and delete records easily.</li>
+
+                <li>To reduce manual work and save time.</li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- Features -->
+
+        <section class="section">
+
+            <h2>Main Features</h2>
+
+            <div class="features">
+
+                <div class="feature-card">
+
+                    <h3>👨‍🎓 Student Management</h3>
+
+                    <p>
+                        Add, view, update and delete student details.
+                    </p>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <h3>🏢 Company Management</h3>
+
+                    <p>
+                        Store and manage company information
+                        and job details.
+                    </p>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <h3>📄 Application Management</h3>
+
+                    <p>
+                        Apply for companies and maintain
+                        application status.
+                    </p>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <h3>📊 Dashboard</h3>
+
+                    <p>
+                        View the total number of students,
+                        companies and applications.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Technologies -->
+
+        <section class="section">
+
+            <h2>Technologies Used</h2>
+
+            <ul class="tech-list">
+
+                <li><b>HTML:</b> To create web pages.</li>
+
+                <li><b>CSS:</b> To design and style web pages.</li>
+
+                <li><b>JavaScript:</b> To make pages interactive.</li>
+
+                <li><b>Node.js:</b> To run the server-side application.</li>
+
+                <li><b>Express.js:</b> To create server routes.</li>
+
+                <li><b>MySQL:</b> To store and manage database records.</li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- Project Details -->
+
+        <section class="section">
+
+            <h2>Project Details</h2>
+
+            <div class="project-details">
+
+                <p><b>Project Name:</b> College Placement Management System</p>
+
+                <p><b>Project Type:</b> Web-Based Application</p>
+
+                <p><b>Database:</b> college_placement_db</p>
+
+                <p><b>Backend:</b> Node.js and Express.js</p>
+
+                <p><b>Frontend:</b> HTML, CSS and JavaScript</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Conclusion -->
+
+        <section class="section">
+
+            <h2>Conclusion</h2>
+
+            <p>
+                The College Placement Management System helps colleges
+                manage placement activities in an efficient way.
+
+                It provides easy access to student details, company
+                information and application records.
+
+                This project helps improve the overall placement
+                management process.
+            </p>
+
+        </section>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>College Placement Management System</p>
+
+        <p>Your Career, Our Priority!</p>
+
+        <p>© 2026 All Rights Reserved</p>
+
+    </footer>
+
+</body>
+</html>

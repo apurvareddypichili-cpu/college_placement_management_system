@@ -1,0 +1,439 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Apply for Company</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                linear-gradient(rgba(255,255,255,0.78),
+                                rgba(220,235,250,0.85)),
+                url("https://images.unsplash.com/photo-1497366754035-f200968a6e72")
+                center/cover fixed no-repeat;
+            color: #17365d;
+        }
+
+        header {
+            background: #123d70;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h2 {
+            font-size: 23px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #8bd3ff;
+        }
+
+        .heading {
+            text-align: center;
+            padding: 40px 15px 15px;
+        }
+
+        .heading h1 {
+            color: #123d70;
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .heading p {
+            color: #52677d;
+            font-size: 16px;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 25px auto 50px;
+            padding: 35px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #1769aa;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #123d70;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #b7cce2;
+            border-radius: 7px;
+            font-size: 15px;
+            outline: none;
+            background: white;
+        }
+
+        input:focus, select:focus {
+            border-color: #1769aa;
+            box-shadow: 0 0 5px #8bd3ff;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        button {
+            flex: 1;
+            padding: 13px;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            background: #1769aa;
+            color: white;
+        }
+
+        .submit-btn:hover {
+            background: #123d70;
+        }
+
+        .reset-btn {
+            background: #dce8f5;
+            color: #123d70;
+        }
+
+        .reset-btn:hover {
+            background: #bfd3e9;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #123d70;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            line-height: 1.8;
+        }
+
+        @media(max-width: 600px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .form-container {
+                margin: 20px 15px 40px;
+                padding: 25px;
+            }
+
+            .heading h1 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <header>
+
+        <h2>🎓 College Placement System</h2>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="insertStudent.html">Add Student</a>
+            <a href="listStudent.html">Students</a>
+            <a href="insertCompany.html">Add Company</a>
+            <a href="listCompany.html">Companies</a>
+            <a href="apply.html">Apply</a>
+            <a href="listApplications.html">Applications</a>
+            <a href="update.html">Update</a>
+            <a href="delete.html">Delete</a>
+            <a href="about.html">About</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Page Heading -->
+
+    <section class="heading">
+
+        <h1>Apply for a Company</h1>
+
+        <p>Take the next step towards your dream career!</p>
+
+    </section>
+
+
+    <!-- Application Form -->
+
+    <div class="form-container">
+
+        <h2>Application Form</h2>
+
+        <form id="applicationForm">
+
+            <div class="form-group">
+
+                <label>Application ID</label>
+
+                <input type="number" name="APPLICATION_ID"
+                       placeholder="Enter Application ID"
+                       required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Student ID</label>
+
+                <select name="STUDENT_ID" id="studentSelect" required>
+                    <option value="">Select Student</option>
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Company ID</label>
+
+                <select name="COMPANY_ID" id="companySelect" required>
+                    <option value="">Select Company</option>
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Application Date</label>
+
+                <input type="date" name="APPLICATION_DATE" required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Application Status</label>
+
+                <select name="STATUS" required>
+                    <option value="Pending">Pending</option>
+                    <option value="Shortlisted">Shortlisted</option>
+                    <option value="Selected">Selected</option>
+                    <option value="Rejected">Rejected</option>
+                </select>
+
+            </div>
+
+            <div class="buttons">
+
+                <button type="submit" class="submit-btn">
+                    Submit Application
+                </button>
+
+                <button type="reset" class="reset-btn">
+                    Reset
+                </button>
+
+            </div>
+
+            <p id="message"></p>
+
+        </form>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>College Placement Management System</p>
+
+        <p>Your Career, Our Priority!</p>
+
+        <p>© 2026 All Rights Reserved</p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+        // Load Students
+
+        async function loadStudents() {
+
+            try {
+
+                const response = await fetch('/students');
+
+                if (!response.ok) throw new Error('Unable to load students');
+
+                const students = await response.json();
+
+                const select = document.getElementById('studentSelect');
+
+                students.forEach(student => {
+
+                    const option = document.createElement('option');
+
+                    option.value = student.STUDENT_ID;
+
+                    option.textContent =
+                        student.STUDENT_ID + " - " + student.NAME;
+
+                    select.appendChild(option);
+
+                });
+
+            } catch (error) {
+
+                document.getElementById('message').innerText =
+                    error.message;
+
+            }
+
+        }
+
+
+        // Load Companies
+
+        async function loadCompanies() {
+
+            try {
+
+                const response = await fetch('/companies');
+
+                if (!response.ok) throw new Error('Unable to load companies');
+
+                const companies = await response.json();
+
+                const select = document.getElementById('companySelect');
+
+                companies.forEach(company => {
+
+                    const option = document.createElement('option');
+
+                    option.value = company.COMPANY_ID;
+
+                    option.textContent =
+                        company.COMPANY_ID + " - " + company.COMPANY_NAME;
+
+                    select.appendChild(option);
+
+                });
+
+            } catch (error) {
+
+                document.getElementById('message').innerText =
+                    error.message;
+
+            }
+
+        }
+
+
+        // Submit Application
+
+        document.getElementById('applicationForm')
+            .addEventListener('submit', async function(event) {
+
+                event.preventDefault();
+
+                const formData = new FormData(this);
+
+                const data = Object.fromEntries(formData.entries());
+
+                try {
+
+                    const response = await fetch('/applications', {
+
+                        method: 'POST',
+
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+
+                        body: JSON.stringify(data)
+
+                    });
+
+                    const result = await response.text();
+
+                    document.getElementById('message').innerText = result;
+
+                    if (response.ok) {
+                        this.reset();
+                    }
+
+                } catch (error) {
+
+                    document.getElementById('message').innerText =
+                        'Error submitting application!';
+
+                }
+
+            });
+
+
+        loadStudents();
+        loadCompanies();
+
+    </script>
+
+</body>
+</html>

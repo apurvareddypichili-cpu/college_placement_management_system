@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>View Companies - College Placement System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                linear-gradient(rgba(255,255,255,0.80),
+                                rgba(220,235,250,0.88)),
+                url("https://images.unsplash.com/photo-1497366754035-f200968a6e72")
+                center/cover fixed no-repeat;
+            color: #17365d;
+        }
+
+        header {
+            background: #123d70;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h2 {
+            font-size: 23px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #8bd3ff;
+        }
+
+        .heading {
+            text-align: center;
+            padding: 45px 15px 20px;
+        }
+
+        .heading h1 {
+            color: #123d70;
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .heading p {
+            color: #52677d;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 25px auto 50px;
+            padding: 25px;
+            background: rgba(255,255,255,0.96);
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.13);
+            overflow-x: auto;
+        }
+
+        .container h2 {
+            text-align: center;
+            color: #1769aa;
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 750px;
+        }
+
+        th {
+            background: #123d70;
+            color: white;
+            padding: 15px 12px;
+            text-align: center;
+        }
+
+        td {
+            padding: 13px 12px;
+            text-align: center;
+            border-bottom: 1px solid #d7e3ef;
+            color: #34495e;
+        }
+
+        tr:nth-child(even) {
+            background: #edf6ff;
+        }
+
+        tr:hover {
+            background: #dcecff;
+        }
+
+        .refresh-btn {
+            display: block;
+            margin: 0 auto 20px;
+            padding: 11px 25px;
+            background: #1769aa;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .refresh-btn:hover {
+            background: #123d70;
+        }
+
+        .message {
+            text-align: center;
+            padding: 15px;
+            color: #1769aa;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #123d70;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            line-height: 1.8;
+        }
+
+        @media(max-width: 600px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .heading h1 {
+                font-size: 28px;
+            }
+
+            .container {
+                margin: 15px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <header>
+
+        <h2>🎓 College Placement System</h2>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="insertStudent.html">Add Student</a>
+            <a href="listStudent.html">Students</a>
+            <a href="insertCompany.html">Add Company</a>
+            <a href="listCompany.html">Companies</a>
+            <a href="apply.html">Apply</a>
+            <a href="listApplications.html">Applications</a>
+            <a href="update.html">Update</a>
+            <a href="delete.html">Delete</a>
+            <a href="about.html">About</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Page Heading -->
+
+    <section class="heading">
+
+        <h1>Registered Companies</h1>
+
+        <p>View all companies and their job opportunities.</p>
+
+    </section>
+
+
+    <!-- Company Table -->
+
+    <div class="container">
+
+        <h2>Company Records</h2>
+
+        <button class="refresh-btn" onclick="loadCompanies()">
+            Refresh Companies
+        </button>
+
+        <p class="message" id="message">Loading companies...</p>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Company ID</th>
+                    <th>Company Name</th>
+                    <th>Location</th>
+                    <th>Package (LPA)</th>
+                    <th>Eligibility CGPA</th>
+                    <th>Job Role</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="companyTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>College Placement Management System</p>
+
+        <p>Your Career, Our Priority!</p>
+
+        <p>© 2026 All Rights Reserved</p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+        async function loadCompanies() {
+
+            const table = document.getElementById('companyTable');
+
+            const message = document.getElementById('message');
+
+            table.innerHTML = '';
+
+            message.innerText = 'Loading companies...';
+
+            try {
+
+                const response = await fetch('/companies');
+
+                if (!response.ok) {
+                    throw new Error('Unable to fetch companies');
+                }
+
+                const companies = await response.json();
+
+                if (companies.length === 0) {
+
+                    message.innerText = 'No companies found.';
+
+                    return;
+
+                }
+
+                message.innerText = '';
+
+                companies.forEach(function(company) {
+
+                    const row = document.createElement('tr');
+
+                    const values = [
+                        company.COMPANY_ID,
+                        company.COMPANY_NAME,
+                        company.LOCATION,
+                        company.PACKAGE,
+                        company.ELIGIBILITY_CGPA,
+                        company.JOB_ROLE
+                    ];
+
+                    values.forEach(function(value) {
+
+                        const cell = document.createElement('td');
+
+                        cell.textContent = value ?? '';
+
+                        row.appendChild(cell);
+
+                    });
+
+                    table.appendChild(row);
+
+                });
+
+            }
+
+            catch (error) {
+
+                message.innerText =
+                    'Error loading companies. Check your server connection.';
+
+                console.log(error);
+
+            }
+
+        }
+
+        loadCompanies();
+
+    </script>
+
+</body>
+</html>

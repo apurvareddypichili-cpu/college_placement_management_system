@@ -1,0 +1,462 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Update Records - College Placement System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                linear-gradient(rgba(255,255,255,0.80),
+                                rgba(220,235,250,0.88)),
+                url("https://images.unsplash.com/photo-1497366754035-f200968a6e72")
+                center/cover fixed no-repeat;
+            color: #17365d;
+        }
+
+        header {
+            background: #123d70;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h2 {
+            font-size: 23px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #8bd3ff;
+        }
+
+        .heading {
+            text-align: center;
+            padding: 45px 15px 20px;
+        }
+
+        .heading h1 {
+            color: #123d70;
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .heading p {
+            color: #52677d;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 25px auto 50px;
+            padding: 25px;
+        }
+
+        .update-card {
+            background: rgba(255,255,255,0.96);
+            padding: 28px;
+            margin-bottom: 25px;
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.13);
+        }
+
+        .update-card h2 {
+            text-align: center;
+            color: #1769aa;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #123d70;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #b7cce2;
+            border-radius: 7px;
+            font-size: 15px;
+            background: white;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #1769aa;
+            box-shadow: 0 0 5px #8bd3ff;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 7px;
+            background: #1769aa;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #123d70;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #123d70;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            line-height: 1.8;
+        }
+
+        @media(max-width: 600px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .container {
+                margin: 15px;
+                padding: 10px;
+            }
+
+            .heading h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <header>
+
+        <h2>🎓 College Placement System</h2>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="insertStudent.html">Add Student</a>
+            <a href="listStudent.html">Students</a>
+            <a href="insertCompany.html">Add Company</a>
+            <a href="listCompany.html">Companies</a>
+            <a href="apply.html">Apply</a>
+            <a href="listApplications.html">Applications</a>
+            <a href="update.html">Update</a>
+            <a href="delete.html">Delete</a>
+            <a href="about.html">About</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Page Heading -->
+
+    <section class="heading">
+
+        <h1>Update Records</h1>
+
+        <p>Modify existing student, company and application details.</p>
+
+    </section>
+
+
+    <div class="container">
+
+
+        <!-- Update Student -->
+
+        <div class="update-card">
+
+            <h2>👨‍🎓 Update Student</h2>
+
+            <form id="updateStudentForm">
+
+                <div class="form-group">
+                    <label>Student ID</label>
+                    <input type="number" id="sId"
+                           placeholder="Enter Student ID to Update"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Student Name</label>
+                    <input type="text" id="sName"
+                           placeholder="Enter New Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Department</label>
+                    <input type="text" id="sDepartment"
+                           placeholder="Enter New Department" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="sEmail"
+                           placeholder="Enter New Email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" id="sPhone"
+                           placeholder="Enter New Phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label>CGPA</label>
+                    <input type="number" id="sCgpa"
+                           step="0.01" min="0" max="10"
+                           placeholder="Enter New CGPA" required>
+                </div>
+
+                <button type="submit">Update Student</button>
+
+                <p class="message" id="studentMessage"></p>
+
+            </form>
+
+        </div>
+
+
+        <!-- Update Company -->
+
+        <div class="update-card">
+
+            <h2>🏢 Update Company</h2>
+
+            <form id="updateCompanyForm">
+
+                <div class="form-group">
+                    <label>Company ID</label>
+                    <input type="number" id="cId"
+                           placeholder="Enter Company ID to Update"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Company Name</label>
+                    <input type="text" id="cName"
+                           placeholder="Enter New Company Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" id="cLocation"
+                           placeholder="Enter New Location" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Package (LPA)</label>
+                    <input type="number" id="cPackage"
+                           step="0.01" min="0"
+                           placeholder="Enter New Package" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Eligibility CGPA</label>
+                    <input type="number" id="cCgpa"
+                           step="0.01" min="0" max="10"
+                           placeholder="Enter New Eligibility CGPA" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Job Role</label>
+                    <input type="text" id="cRole"
+                           placeholder="Enter New Job Role" required>
+                </div>
+
+                <button type="submit">Update Company</button>
+
+                <p class="message" id="companyMessage"></p>
+
+            </form>
+
+        </div>
+
+
+        <!-- Update Application -->
+
+        <div class="update-card">
+
+            <h2>📄 Update Application</h2>
+
+            <form id="updateApplicationForm">
+
+                <div class="form-group">
+                    <label>Application ID</label>
+                    <input type="number" id="aId"
+                           placeholder="Enter Application ID to Update"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Student ID</label>
+                    <input type="number" id="aStudentId"
+                           placeholder="Enter Student ID" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Company ID</label>
+                    <input type="number" id="aCompanyId"
+                           placeholder="Enter Company ID" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Application Date</label>
+                    <input type="date" id="aDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Application Status</label>
+                    <select id="aStatus" required>
+                        <option value="">Select Status</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Shortlisted">Shortlisted</option>
+                        <option value="Selected">Selected</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                </div>
+
+                <button type="submit">Update Application</button>
+
+                <p class="message" id="applicationMessage"></p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>College Placement Management System</p>
+
+        <p>Your Career, Our Priority!</p>
+
+        <p>© 2026 All Rights Reserved</p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+        // Update Student
+
+        document.getElementById('updateStudentForm')
+            .addEventListener('submit', async function(event) {
+
+                event.preventDefault();
+
+                const id = document.getElementById('sId').value;
+
+                const student = {
+                    NAME: document.getElementById('sName').value,
+                    DEPARTMENT: document.getElementById('sDepartment').value,
+                    EMAIL: document.getElementById('sEmail').value,
+                    PHONE: document.getElementById('sPhone').value,
+                    CGPA: document.getElementById('sCgpa').value
+                };
+
+                try {
+
+                    const response = await fetch('/students/' + id, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(student)
+                    });
+
+                    const result = await response.text();
+
+                    document.getElementById('studentMessage').innerText =
+                        result;
+
+                    if (response.ok) this.reset();
+
+                } catch (error) {
+
+                    document.getElementById('studentMessage').innerText =
+                        'Error updating student!';
+
+                }
+
+            });
+
+
+        // Update Company
+
+        document.getElementById('updateCompanyForm')
+            .addEventListener('submit', async function(event) {
+
+                event.preventDefault();
+
+                const id = document.getElementById('cId').value;
+
+                const company = {
+                    COMPANY_NAME: document.getElementById('cName').value,
+                    LOCATION: document.getElementById('cLocation').value,
+                    PACKAGE: document.getElementById('cPackage').value,
+                    ELIGIBILITY_CGPA: document.getElementById('cCgpa').value,
+                    JOB_ROLE: document.getElementById('cRole').value
+                };
+
+                try {
+
+                    const response = await fetch('/companies/' + id, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(company

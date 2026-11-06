@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Company - College Placement System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                linear-gradient(rgba(255,255,255,0.80),
+                                rgba(220,235,250,0.88)),
+                url("https://images.unsplash.com/photo-1497366754035-f200968a6e72")
+                center/cover fixed no-repeat;
+            color: #17365d;
+        }
+
+        header {
+            background: #123d70;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h2 {
+            font-size: 23px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #8bd3ff;
+        }
+
+        .heading {
+            text-align: center;
+            padding: 45px 15px 20px;
+        }
+
+        .heading h1 {
+            color: #123d70;
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .heading p {
+            color: #52677d;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 25px auto 50px;
+            padding: 30px;
+            background: rgba(255,255,255,0.96);
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.13);
+        }
+
+        .container h2 {
+            text-align: center;
+            color: #1769aa;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #123d70;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #b7cce2;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #1769aa;
+            box-shadow: 0 0 5px #8bd3ff;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 7px;
+            background: #1769aa;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #123d70;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 18px;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #123d70;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            line-height: 1.8;
+        }
+
+        @media(max-width: 600px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .container {
+                margin: 15px;
+                padding: 22px;
+            }
+
+            .heading h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <header>
+
+        <h2>🎓 College Placement System</h2>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="insertStudent.html">Add Student</a>
+            <a href="listStudent.html">Students</a>
+            <a href="insertCompany.html">Add Company</a>
+            <a href="listCompany.html">Companies</a>
+            <a href="apply.html">Apply</a>
+            <a href="listApplications.html">Applications</a>
+            <a href="update.html">Update</a>
+            <a href="delete.html">Delete</a>
+            <a href="about.html">About</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Page Heading -->
+
+    <section class="heading">
+
+        <h1>Add New Company</h1>
+
+        <p>Enter company information to register a new company.</p>
+
+    </section>
+
+
+    <!-- Company Form -->
+
+    <div class="container">
+
+        <h2>Company Registration Form</h2>
+
+        <form id="companyForm">
+
+            <div class="form-group">
+
+                <label>Company ID</label>
+
+                <input type="number" id="companyId"
+                       placeholder="Enter Company ID"
+                       required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Company Name</label>
+
+                <input type="text" id="companyName"
+                       placeholder="Enter Company Name"
+                       required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Location</label>
+
+                <input type="text" id="location"
+                       placeholder="Enter Company Location"
+                       required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Package (LPA)</label>
+
+                <input type="number" id="package"
+                       placeholder="Enter Package in LPA"
+                       step="0.01" min="0"
+                       required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Eligibility CGPA</label>
+
+                <input type="number" id="eligibility"
+                       placeholder="Enter Minimum CGPA"
+                       step="0.01" min="0" max="10"
+                       required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Job Role</label>
+
+                <input type="text" id="jobRole"
+                       placeholder="Enter Job Role"
+                       required>
+
+            </div>
+
+
+            <button type="submit">Add Company</button>
+
+            <p class="message" id="message"></p>
+
+        </form>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>College Placement Management System</p>
+
+        <p>Your Career, Our Priority!</p>
+
+        <p>© 2026 All Rights Reserved</p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+        document.getElementById('companyForm')
+            .addEventListener('submit', async function(event) {
+
+                event.preventDefault();
+
+                const company = {
+
+                    COMPANY_ID: document.getElementById('companyId').value,
+
+                    COMPANY_NAME: document.getElementById('companyName').value,
+
+                    LOCATION: document.getElementById('location').value,
+
+                    PACKAGE: document.getElementById('package').value,
+
+                    ELIGIBILITY_CGPA: document.getElementById('eligibility').value,
+
+                    JOB_ROLE: document.getElementById('jobRole').value
+
+                };
+
+                try {
+
+                    const response = await fetch('/companies', {
+
+                        method: 'POST',
+
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+
+                        body: JSON.stringify(company)
+
+                    });
+
+                    const result = await response.text();
+
+                    document.getElementById('message').innerText = result;
+
+                    if (response.ok) {
+                        this.reset();
+                    }
+
+                }
+
+                catch (error) {
+
+                    document.getElementById('message').innerText =
+                        'Error adding company!';
+
+                }
+
+            });
+
+    </script>
+
+</body>
+</html>
